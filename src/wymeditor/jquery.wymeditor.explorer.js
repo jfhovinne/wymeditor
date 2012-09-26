@@ -98,16 +98,6 @@ WYMeditor.WymClassExplorer.prototype.initIframe = function(iframe) {
     }catch(e){}
 };
 
-(function(editorLoadSkin) {
-    WYMeditor.WymClassExplorer.prototype.loadSkin = function() {
-        // Mark container items as unselectable (#203)
-        // Fix for issue explained: http://stackoverflow.com/questions/1470932/ie8-iframe-designmode-loses-selection
-        jQuery(this._box).find(this._options.containerSelector).attr('unselectable', 'on');
-        
-        editorLoadSkin.call(this);
-    };
-})(WYMeditor.editor.prototype.loadSkin);
-
 WYMeditor.WymClassExplorer.prototype._exec = function(cmd,param) {
 
     switch(cmd) {
@@ -117,7 +107,9 @@ WYMeditor.WymClassExplorer.prototype._exec = function(cmd,param) {
         var container = this.findUp(this.container(), WYMeditor.LI);
         if(container) {
             var ancestor = container.parentNode.parentNode;
-            if(container.parentNode.childNodes.length>1 || ancestor.tagName.toLowerCase() == WYMeditor.OL || ancestor.tagName.toLowerCase() == WYMeditor.UL)
+            if(container.parentNode.childNodes.length>1
+              || ancestor.tagName.toLowerCase() == WYMeditor.OL
+              || ancestor.tagName.toLowerCase() == WYMeditor.UL)
               this._doc.execCommand(cmd);
         }
     break;
@@ -132,8 +124,8 @@ WYMeditor.WymClassExplorer.prototype._exec = function(cmd,param) {
 WYMeditor.WymClassExplorer.prototype.selected = function() {
 
     var caretPos = this._iframe.contentWindow.document.caretPos;
-        if(caretPos) {
-            if(caretPos.parentElement)
+        if(caretPos!=null) {
+            if(caretPos.parentElement!=undefined)
               return(caretPos.parentElement());
         }
 };
@@ -144,11 +136,8 @@ WYMeditor.WymClassExplorer.prototype.saveCaret = function() {
 };
 
 WYMeditor.WymClassExplorer.prototype.addCssRule = function(styles, oCss) {
-    // IE doesn't handle combined selectors (#196)
-    var selectors = oCss.name.split(',');
-    for (var i in selectors) {
-        styles.addRule(selectors[i], oCss.css);
-    }
+
+    styles.addRule(oCss.name, oCss.css);
 };
 
 WYMeditor.WymClassExplorer.prototype.insert = function(html) {

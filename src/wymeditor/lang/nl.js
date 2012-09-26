@@ -26,7 +26,6 @@ WYMeditor.STRINGS['nl'] = {
     Table_Header:     'Tabel-kop',
     URL:              'URL',
     Title:            'Titel',
-    Relationship:     'Relatie',
     Alternative_Text: 'Alternatieve tekst',
     Caption:          'Bijschrift',
     Summary:          'Summary',
@@ -43,3 +42,4 @@ WYMeditor.STRINGS['nl'] = {
     Status:           'Status',
     Source_Code:      'Broncode'
 };
+

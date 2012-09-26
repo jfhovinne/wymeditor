@@ -26,7 +26,6 @@ WYMeditor.STRINGS['sv'] = {
     Table_Header:     'Tabellrubrik',
     URL:              'URL',
     Title:            'Titel',
-    Relationship:     'Relation',
     Alternative_Text: 'Alternativ text',
     Caption:          'Överskrift',
     Summary:          'Summary',
