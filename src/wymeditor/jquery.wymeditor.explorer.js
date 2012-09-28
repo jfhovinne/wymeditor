@@ -195,8 +195,9 @@ WYMeditor.WymClassExplorer.prototype.keyup = function() {
 WYMeditor.WymClassExplorer.prototype.setFocusToNode = function(node, toStart) {
     var range = this._doc.selection.createRange();
     toStart = toStart ? true : false;
-    
-    range.moveToElementText(node);
+    try {
+        range.moveToElementText(node); //TODO: broken in IE8 & IE9
+    } catch (e) { }
     range.collapse(toStart);
     range.select();
     node.focus();
