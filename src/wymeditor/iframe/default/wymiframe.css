@@ -58,6 +58,15 @@
   blockquote{ background-image: url(lbl-blockquote.png); }
   pre       { background-image: url(lbl-pre.png); }
 
+/* labels for specific classes */
+  p.align-left   { background-image: url(lbl-p-align-left.png); }
+  p.align-right  { background-image: url(lbl-p-align-right.png); }
+  p.align-center { background-image: url(lbl-p-align-center.png); }
+  p.date         { background-image: url(lbl-p-date.png); }
+  p.important    { background-image: url(lbl-p-important.png); }
+  p.note         { background-image: url(lbl-p-note.png); }
+  p.teaser       { background-image: url(lbl-p-teaser.png); }
+
 /* specific HTML elements */
   caption   { text-align: left; }
   img       { margin-right: 5px;
