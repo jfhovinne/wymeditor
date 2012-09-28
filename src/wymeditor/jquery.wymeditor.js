@@ -1,5 +1,5 @@
 /**
- * @version 0.5-rc1
+ * @version 0.5-rc3
  *
  * WYMeditor : what you see is What You Mean web-based editor
  * Copyright (c) 2005 - 2012 Jean-Francois Hovinne, http://www.wymeditor.org/
@@ -120,7 +120,7 @@ jQuery.extend(WYMeditor, {
 
 */
 
-    VERSION             : "0.5-rc1",
+    VERSION             : "0.5-rc3",
     INSTANCES           : [],
     STRINGS             : [],
     SKINS               : [],
