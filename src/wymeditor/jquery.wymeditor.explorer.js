@@ -23,8 +23,7 @@ WYMeditor.WymClassExplorer = function(wym) {
 
     this._wym = wym;
     this._class = "className";
-    this._newLine = "\r\n";
-
+    this._newLine = "\n";
 };
 
 WYMeditor.WymClassExplorer.prototype.initIframe = function(iframe) {
