@@ -192,13 +192,26 @@ WYMeditor.WymClassExplorer.prototype.keyup = function() {
 };
 
 WYMeditor.WymClassExplorer.prototype.setFocusToNode = function(node, toStart) {
-    var range = this._doc.selection.createRange();
-    toStart = toStart ? true : false;
-    try {
-        range.moveToElementText(node); //TODO: broken in IE8 & IE9
-    } catch (e) { }
-    range.collapse(toStart);
-    range.select();
-    node.focus();
+    switch(jQuery.browser.version) {
+    case '6.0':
+    case '7.0':
+        var range = this._doc.selection.createRange();
+        toStart = toStart ? true : false;
+        range.moveToElementText(node);
+        range.collapse(toStart);
+        range.select();
+        node.focus();
+        break;
+    case '8.0':
+        //TODO: broken in IE8
+        break;
+    default:
+        var range = this._doc.createRange(),
+            selection = this._iframe.contentWindow.getSelection();
+        toStart = toStart ? 0 : 1;
+        range.selectNodeContents(node);
+        selection.addRange(range);
+        selection.collapse(node, toStart);
+        this._iframe.contentWindow.focus();
+    }
 };
-
